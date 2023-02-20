@@ -1,0 +1,70 @@
+@use "../abstracts" as *;
+
+footer {
+  display: grid;
+  background-color: $v-d-violet;
+  .container,
+  .#{&}__content,
+  .#{&}__nav {
+    @include flex(center, center, column, 30px);
+  }
+  .container {
+    text-align: center;
+    padding-block: 3.5rem;
+    @include media($lg) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+  .#{&}__nav {
+    @include media($md) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    &__catygories {
+      @include flex(null, null, column, 1.5rem);
+      @include media($md) {
+        flex-direction: row;
+        gap: 1rem;
+      }
+    }
+    &__catygory {
+      width: 150px;
+      max-width: 100%;
+    }
+    &__catygory__title {
+      color: white;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    &__catygory__link {
+      color: $gray;
+      font-size: 0.9em;
+      padding-block: 0.5rem;
+      @include trans;
+      &:hover {
+        color: $cyan;
+      }
+    }
+  }
+  .#{&}__content {
+    @include media($lg) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .social__media {
+      display: flex;
+      gap: 25px;
+      color: $white;
+      font-size: 1.5em;
+      &__link {
+        @include trans;
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+  }
+}

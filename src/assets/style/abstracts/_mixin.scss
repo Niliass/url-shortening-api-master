@@ -1,0 +1,51 @@
+@use "colors" as *;
+@use "breakpoints" as *;
+
+@mixin trans {
+  transition: 0.25s;
+}
+@mixin flex($just, $align, $dir, $gap) {
+  display: flex;
+  justify-content: $just;
+  align-items: $align;
+  flex-direction: $dir;
+  gap: $gap;
+}
+@mixin primarybtn($currentColor, $rad, $pad) {
+  background-color: $currentColor;
+  color: $white;
+  font-weight: 700;
+  padding: 0.8rem $pad;
+  width: 100%;
+  border-radius: $rad;
+  @include trans;
+  &:hover {
+    background-color: lighten($currentColor, 20%);
+  }
+  @include media($md) {
+    width: fit-content;
+    font-size: 0.9rem;
+  }
+}
+@mixin btn-shap($wd, $rad) {
+  width: $wd;
+  max-width: 100%;
+  padding: 15px;
+  background-color: $cyan;
+  color: white;
+  font-weight: 700;
+  border-radius: $rad;
+  &:hover {
+    background-color: hsl(179deg 56% 75%);
+  }
+}
+@mixin media($wd) {
+  @media (min-width: $wd) {
+    @content;
+  }
+}
+@mixin mediabetween($startwd, $endwd) {
+  @media (min-width: $startwd) and (max-width: ($endwd - 1px)) {
+    @content;
+  }
+}

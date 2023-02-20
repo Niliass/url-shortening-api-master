@@ -1,0 +1,151 @@
+@use "../abstracts" as *;
+
+.shorten {
+  position: relative;
+  background-color: rgb($gray, 0.2);
+  &__form {
+    @include flex(null, null, column, 15px);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    background-color: $d-violet;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(-50%);
+    @include media($md) {
+      flex-direction: row;
+    }
+    &__container {
+      flex: 1;
+      position: relative;
+      @include trans;
+      .msg__invalid {
+        position: absolute;
+        z-index: 1;
+        bottom: -25px;
+        height: 0;
+        font: {
+          size: 0.9rem;
+          style: italic;
+        }
+        overflow: hidden;
+        @include trans;
+      }
+      &.invalid {
+        margin-bottom: 20px;
+        @include media($md) {
+          margin-bottom: 0;
+        }
+        .input__holder,
+        .msg__invalid {
+          color: $alert-color;
+        }
+        .input__holder {
+          border-color: $alert-color;
+        }
+        .msg__invalid {
+          height: 25px;
+        }
+      }
+    }
+  }
+  .input__holder,
+  .shorten__btn {
+    position: relative;
+    z-index: 1;
+  }
+  .input__holder {
+    flex: 1;
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    input[type="url"] {
+      width: 100%;
+      border: none;
+      padding: 0.7rem 1rem;
+      &::placeholder {
+        font-size: clamp(0.85rem, 3vw, 1.1rem);
+        color: $grayish-violet;
+      }
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &--desk {
+      display: none;
+    }
+    @include media($md) {
+      width: 100%;
+      height: 100%;
+      &--desk {
+        display: block;
+      }
+      &--mob {
+        display: none;
+      }
+    }
+  }
+}
+.shorted {
+  &__container {
+    margin-top: -2.25rem;
+    overflow: hidden;
+    @include trans;
+    &.show__links {
+      height: auto;
+      opacity: 1;
+    }
+  }
+  &__link,
+  .short__container {
+    @include flex(null, null, column, null);
+    @include media($md) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+  &__link {
+    background-color: white;
+    border-radius: 10px;
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+    margin-bottom: 2rem;
+    @include media($md) {
+      justify-content: space-between;
+    }
+    .unshort__link,
+    .short__container {
+      padding: 1rem clamp(1rem, 3vw, 1.5rem);
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+    }
+    .unshort__link {
+      flex: 1;
+      color: $v-d-violet;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .short {
+      &__container {
+        @include media($md) {
+          @include flex(null, center, null, 1rem);
+        }
+      }
+      &__link {
+        padding-bottom: 1rem;
+        color: $cyan;
+        @include media($md) {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

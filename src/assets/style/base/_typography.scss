@@ -1,0 +1,54 @@
+@use "../abstracts" as *;
+
+p {
+  color: $grayish-violet;
+  line-height: 1.7;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $v-d-blue;
+}
+.intro {
+  &__content {
+    text-align: center;
+    width: min(100%, 600px);
+    @include media($lg) {
+      text-align: left;
+    }
+  }
+  &__title {
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+  }
+  &__desc {
+    font-size: clamp(0.9rem, 4vw, 1.25rem);
+  }
+  @include mediabetween($sm, $lg) {
+    &__content {
+      padding-block: 2rem;
+    }
+    &__title {
+      font-size: 3rem;
+    }
+  }
+}
+.advanced {
+  &__intro {
+    text-align: center;
+    max-width: 450px;
+    margin-inline: auto;
+    padding-top: 2.5rem;
+  }
+  &__title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  &__desc {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+}
