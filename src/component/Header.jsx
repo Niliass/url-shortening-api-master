@@ -23,7 +23,7 @@ const Header = () => {
               <a href="#">Resources</a>
             </li>
           </ul>
-          <hr />
+          <hr className="break__line" />
           <div className="header__log__grp">
             <a href="#" className="btn__secondary">
               Login

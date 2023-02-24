@@ -1,10 +1,14 @@
+@use "../abstracts/" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 
 :root {
   font-size: 18px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,6 +30,12 @@ button,
 input {
   outline: none;
   color: inherit;
+}
+hr {
+  border: none;
+  @include media($md) {
+    display: none;
+  }
 }
 body {
   font-family: "Poppins", sans-serif;

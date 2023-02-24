@@ -27,18 +27,6 @@
     font-size: 0.9rem;
   }
 }
-@mixin btn-shap($wd, $rad) {
-  width: $wd;
-  max-width: 100%;
-  padding: 15px;
-  background-color: $cyan;
-  color: white;
-  font-weight: 700;
-  border-radius: $rad;
-  &:hover {
-    background-color: hsl(179deg 56% 75%);
-  }
-}
 @mixin media($wd) {
   @media (min-width: $wd) {
     @content;
