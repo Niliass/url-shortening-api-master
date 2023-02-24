@@ -47,7 +47,7 @@ const ShortenForm = () => {
           <ul className="shorted__links">
             <li className="shorted__link">
               <p className="unshort__link">https://google.com</p>
-              <hr />
+              <hr className="break__line" />
               <div className="short__container">
                 <a className="short__link">https://rel.ink/k4lkyk</a>
                 <button className="copy__btn" onClick={handleCopy}>
@@ -57,7 +57,7 @@ const ShortenForm = () => {
             </li>
             <li className="shorted__link">
               <p className="unshort__link">https://google.com</p>
-              <hr />
+              <hr className="break__line" />
               <div className="short__container">
                 <a className="short__link">https://rel.ink/k4lkyk</a>
                 <button className="copy__btn" onClick={handleCopy}>
